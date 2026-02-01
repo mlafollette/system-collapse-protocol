@@ -4,10 +4,43 @@ A procedural text-based survival simulator. "Dungeon Crawler Carl" meets "The Ma
 
 ## Quick Start
 
+Load nvm (required once per terminal session)
+```bash
+source ~/.nvm/nvm.sh
+```
+
 ```bash
 npm install
 npm run dev
 ```
+
+## Helpful GIT commands
+- See what changed
+git status
+
+- Stage a specific file you want to commit
+git add README.md
+
+- Or stall all changed files
+git add .
+
+- Commit with a message
+git commit -m "Your commit message here"
+
+- Push to GitHub
+git push origin main
+
+- Quick one liner for small changes
+git add . && git commit -m "Update readme" && git push origin main
+
+- See what changed (before staging)
+git diff
+
+- See recent commits
+git log --oneline
+
+- Get latest from GitHub before pushing
+git pull origin main
 
 ## About
 

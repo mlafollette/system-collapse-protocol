@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+:root {
+  --terminal-green: #00ff41;
+  --holographic-blue: #00d4ff;
+  --deep-black: #050505;
+  --danger-red: #ff0040;
+  --warning-yellow: #ffcc00;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--deep-black);
+  font-family: 'Fira Code', monospace;
+  color: var(--terminal-green);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* CRT Scanline Overlay */
+.crt-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+}
+
+/* Text Glow Effects */
+.glow-green {
+  text-shadow:
+    0 0 5px var(--terminal-green),
+    0 0 10px var(--terminal-green),
+    0 0 20px var(--terminal-green),
+    0 0 40px rgba(0, 255, 65, 0.3);
+}
+
+.glow-blue {
+  text-shadow:
+    0 0 5px var(--holographic-blue),
+    0 0 10px var(--holographic-blue),
+    0 0 20px var(--holographic-blue),
+    0 0 40px rgba(0, 212, 255, 0.3);
+}
+
+.glow-red {
+  text-shadow:
+    0 0 5px var(--danger-red),
+    0 0 10px var(--danger-red),
+    0 0 20px var(--danger-red);
+}
+
+/* Glitch Effect for Buttons */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+    text-shadow: 0 0 5px var(--terminal-green);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+    text-shadow: -2px 0 var(--danger-red), 2px 0 var(--holographic-blue);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+    text-shadow: 2px 0 var(--danger-red), -2px 0 var(--holographic-blue);
+  }
+  60% {
+    transform: translate(2px, 2px);
+    text-shadow: -2px 0 var(--holographic-blue), 2px 0 var(--danger-red);
+  }
+  80% {
+    transform: translate(2px, -2px);
+    text-shadow: 2px 0 var(--holographic-blue), -2px 0 var(--danger-red);
+  }
+  100% {
+    transform: translate(0);
+    text-shadow: 0 0 5px var(--terminal-green);
+  }
+}
+
+.glitch-hover:hover {
+  animation: glitch 0.3s ease-in-out infinite;
+}
+
+/* Flicker Animation */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+  75% { opacity: 0.9; }
+}
+
+.flicker {
+  animation: flicker 0.15s infinite;
+}
+
+/* Cursor Blink */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor-blink::after {
+  content: '█';
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+/* Progress Bars */
+.health-bar {
+  background: linear-gradient(90deg, var(--danger-red), #ff6b6b);
+  box-shadow: 0 0 10px var(--danger-red);
+}
+
+.sanity-bar {
+  background: linear-gradient(90deg, var(--holographic-blue), #66d9ff);
+  box-shadow: 0 0 10px var(--holographic-blue);
+}
+
+/* Screen Shake */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* VHS Distortion */
+@keyframes vhs-distort {
+  0% {
+    clip-path: inset(40% 0 61% 0);
+    transform: skew(0.5deg);
+  }
+  20% {
+    clip-path: inset(92% 0 1% 0);
+    transform: skew(-0.5deg);
+  }
+  40% {
+    clip-path: inset(43% 0 1% 0);
+    transform: skew(0.5deg);
+  }
+  60% {
+    clip-path: inset(25% 0 58% 0);
+    transform: skew(-0.5deg);
+  }
+  80% {
+    clip-path: inset(54% 0 7% 0);
+    transform: skew(0.5deg);
+  }
+  100% {
+    clip-path: inset(58% 0 43% 0);
+    transform: skew(-0.5deg);
+  }
+}
+
+.vhs-distort {
+  animation: vhs-distort 0.5s linear infinite;
+}
+
+/* Input styling */
+input {
+  font-family: 'Fira Code', monospace;
+}
+
+input::placeholder {
+  color: rgba(0, 255, 65, 0.4);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--deep-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--terminal-green);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--holographic-blue);
+}

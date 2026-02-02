@@ -20,28 +20,28 @@ npm run dev
 `git status`
 
 - Stage a specific file you want to commit
-git add README.md
+`git add README.md`
 
 - Or stall all changed files
-git add .
+`git add .`
 
 - Commit with a message
-git commit -m "Your commit message here"
+`git commit -m "Your commit message here"`
 
 - Push to GitHub
-git push origin main
+`git push origin main`
 
 - Quick one liner for small changes
-git add . && git commit -m "Update readme" && git push origin main
+`git add . && git commit -m "Update readme" && git push origin main`
 
 - See what changed (before staging)
-git diff
+`git diff`
 
 - See recent commits
-git log --oneline
+`git log --oneline`
 
 - Get latest from GitHub before pushing
-git pull origin main
+`git pull origin main`
 
 ## About
 

@@ -9,6 +9,7 @@ Load nvm (required once per terminal session)
 source ~/.nvm/nvm.sh
 ```
 
+Run game
 ```bash
 npm install
 npm run dev
@@ -16,7 +17,7 @@ npm run dev
 
 ## Helpful GIT commands
 - See what changed
-git status
+`git status`
 
 - Stage a specific file you want to commit
 git add README.md
